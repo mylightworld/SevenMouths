@@ -6,8 +6,41 @@
     <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
     <link href="../../css/commom.css" rel="stylesheet" type="text/css" />
     <link href="../../css/main.css" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/jquery-1.6.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery-1.6.2.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/modernizr-2.5.3.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/jquery-1.6.2.js")" type="text/javascript"></script>
     <script src="../../js/commom.js" type="text/javascript"></script>
+
+
+    <script>
+    $(document).ready(function () {
+
+        if (!Modernizr.input.placeholder) {
+            $('[placeholder]').focus(function () {
+                var input = $(this);
+                if (input.val() == input.attr('placeholder')) {
+                    input.val("");
+                    input.removeClass('placeholder');
+                }
+            }).blur(function () {
+                var input = $(this);
+                if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                    input.addClass('placeholder');
+                    input.val(input.attr('placeholder'));
+                }
+            }).blur();
+
+            $('[placeholder]').parents('form').submit(function () {
+                $(this).find('[placeholder]').each(function () {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                    }
+                })
+            });
+        }
+    });
+</script>
 </head>
 
 <body>
