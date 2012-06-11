@@ -1,6 +1,28 @@
-﻿.message{color:Red;}
+﻿.message
+{
+    color: Red;
+}
 
-ul li{list-style:none;}
+ul li
+{
+    list-style: none;
+}
 
 /******头像********/
-.head-portrait{width:23px;height:23px;}
+.head-portrait
+{
+    width: 23px;
+    height: 23px;
+}
+
+/*placeholder*/
+input[type=text],input[type=password]
+{
+    -webkit-appearance: none;
+}
+
+input[type="text"]::-webkit-search-decoration, input[type="text"]::-webkit-search-cancel-button,
+input[type="password"]::-webkit-search-decoration, input[type="password"]::-webkit-search-cancel-button
+{
+    display: none;
+}
